@@ -28,41 +28,28 @@
     -webkit-user-select: none;
   }
 
-  /* ── 五線紙背景 ── */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image: repeating-linear-gradient(
       to bottom,
-      transparent 0px,
-      transparent 28px,
-      rgba(201,168,76,0.07) 28px,
-      rgba(201,168,76,0.07) 29px,
-      transparent 29px,
-      transparent 33px,
-      rgba(201,168,76,0.07) 33px,
-      rgba(201,168,76,0.07) 34px,
-      transparent 34px,
-      transparent 38px,
-      rgba(201,168,76,0.07) 38px,
-      rgba(201,168,76,0.07) 39px,
-      transparent 39px,
-      transparent 43px,
-      rgba(201,168,76,0.07) 43px,
-      rgba(201,168,76,0.07) 44px,
-      transparent 44px,
-      transparent 48px,
-      rgba(201,168,76,0.07) 48px,
-      rgba(201,168,76,0.07) 49px,
-      transparent 49px,
-      transparent 100px
+      transparent 0px, transparent 28px,
+      rgba(201,168,76,0.07) 28px, rgba(201,168,76,0.07) 29px,
+      transparent 29px, transparent 33px,
+      rgba(201,168,76,0.07) 33px, rgba(201,168,76,0.07) 34px,
+      transparent 34px, transparent 38px,
+      rgba(201,168,76,0.07) 38px, rgba(201,168,76,0.07) 39px,
+      transparent 39px, transparent 43px,
+      rgba(201,168,76,0.07) 43px, rgba(201,168,76,0.07) 44px,
+      transparent 44px, transparent 48px,
+      rgba(201,168,76,0.07) 48px, rgba(201,168,76,0.07) 49px,
+      transparent 49px, transparent 100px
     );
     pointer-events: none;
     z-index: 0;
   }
 
-  /* ── メイン画面 ── */
   #main-screen {
     position: fixed;
     inset: 0;
@@ -70,9 +57,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0;
     z-index: 1;
-    transition: opacity 0.4s;
   }
 
   .title-area {
@@ -97,7 +82,6 @@
     text-transform: uppercase;
   }
 
-  /* ── マイクボタン ── */
   .mic-wrapper {
     position: relative;
     width: 160px;
@@ -151,20 +135,13 @@
   }
 
   #mic-btn:active { transform: scale(0.95); }
-
-  #mic-btn svg {
-    width: 44px;
-    height: 44px;
-    fill: var(--gold);
-    transition: fill 0.3s;
-  }
+  #mic-btn svg { width: 44px; height: 44px; fill: var(--gold); transition: fill 0.3s; }
 
   .listening #mic-btn {
     box-shadow: 0 0 0 2px var(--red), 0 12px 40px rgba(192,57,43,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
   }
   .listening #mic-btn svg { fill: var(--red); }
 
-  /* ── ステータステキスト ── */
   #status-area {
     margin-top: 48px;
     text-align: center;
@@ -175,7 +152,6 @@
     font-size: clamp(13px, 2vw, 17px);
     color: var(--muted);
     letter-spacing: 0.08em;
-    transition: color 0.3s;
   }
 
   #recognized-text {
@@ -187,7 +163,7 @@
     font-family: 'Cormorant Garamond', serif;
   }
 
-  /* ── Googleログインボタン ── */
+  /* ログイン画面 */
   #login-area {
     position: fixed;
     inset: 0;
@@ -215,6 +191,15 @@
     margin-bottom: 60px;
   }
 
+  #login-area .login-note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.8;
+  }
+
   #login-btn {
     display: flex;
     align-items: center;
@@ -239,7 +224,7 @@
 
   #login-btn img { width: 22px; height: 22px; }
 
-  /* ── 検索結果リスト ── */
+  /* 検索結果 */
   #result-list {
     position: fixed;
     inset: 0;
@@ -266,11 +251,7 @@
     letter-spacing: 0.1em;
   }
 
-  .result-query {
-    font-size: 14px;
-    color: var(--muted);
-    margin-top: 2px;
-  }
+  .result-query { font-size: 14px; color: var(--muted); margin-top: 2px; }
 
   #back-btn {
     margin-left: auto;
@@ -311,31 +292,17 @@
   .result-item:hover, .result-item:active { background: rgba(201,168,76,0.06); }
 
   .result-item-icon {
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     background: rgba(201,168,76,0.1);
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
 
   .result-item-icon svg { width: 20px; height: 20px; fill: var(--gold); }
+  .result-item-name { font-size: 17px; color: var(--cream); letter-spacing: 0.05em; }
 
-  .result-item-name {
-    font-size: 17px;
-    color: var(--cream);
-    letter-spacing: 0.05em;
-  }
-
-  .result-item-folder {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 3px;
-  }
-
-  /* ── PDF表示 ── */
+  /* PDF表示 */
   #pdf-screen {
     position: fixed;
     inset: 0;
@@ -347,26 +314,17 @@
 
   #pdf-screen.active { display: flex; }
 
-  #pdf-frame {
-    flex: 1;
-    border: none;
-    width: 100%;
-    background: #fff;
-  }
+  #pdf-frame { flex: 1; border: none; width: 100%; background: #fff; }
 
   #pdf-close-btn {
     position: fixed;
-    top: 16px;
-    right: 16px;
+    top: 16px; right: 16px;
     z-index: 40;
-    width: 52px;
-    height: 52px;
+    width: 52px; height: 52px;
     background: rgba(0,0,0,0.7);
     border: 1.5px solid rgba(255,255,255,0.3);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     cursor: pointer;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -377,7 +335,7 @@
   #pdf-close-btn:hover { background: rgba(0,0,0,0.9); }
   #pdf-close-btn svg { width: 22px; height: 22px; fill: white; }
 
-  /* ── 波形アニメーション ── */
+  /* 波形 */
   .wave-bars {
     display: flex;
     gap: 4px;
@@ -388,8 +346,6 @@
     opacity: 0;
     transition: opacity 0.3s;
   }
-
-  .listening ~ #status-area .wave-bars { opacity: 1; }
 
   .wave-bar {
     width: 4px;
@@ -411,7 +367,7 @@
     50% { transform: scaleY(1); }
   }
 
-  /* ── ローディング ── */
+  /* ローディング */
   #loading {
     display: none;
     position: fixed;
@@ -428,8 +384,7 @@
   #loading.active { display: flex; }
 
   .spinner {
-    width: 48px;
-    height: 48px;
+    width: 48px; height: 48px;
     border: 2px solid rgba(201,168,76,0.2);
     border-top-color: var(--gold);
     border-radius: 50%;
@@ -437,14 +392,9 @@
   }
 
   @keyframes spin { to { transform: rotate(360deg); } }
+  #loading-text { color: var(--muted); font-size: 14px; letter-spacing: 0.2em; }
 
-  #loading-text {
-    color: var(--muted);
-    font-size: 14px;
-    letter-spacing: 0.2em;
-  }
-
-  /* ── トースト ── */
+  /* トースト */
   #toast {
     position: fixed;
     bottom: 48px;
@@ -466,10 +416,7 @@
     text-align: center;
   }
 
-  #toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
@@ -482,6 +429,9 @@
     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
     Googleでログイン
   </button>
+  <div class="login-note">
+    ログインすると、あなたのGoogle Drive内の<br>PDFファイルを検索して楽譜を表示します
+  </div>
 </div>
 
 <!-- メイン画面 -->
@@ -491,17 +441,15 @@
     <div class="app-sub">Sheet Music Viewer</div>
   </div>
 
-  <div id="mic-container" class="">
+  <div id="mic-container">
     <div class="mic-wrapper">
       <div class="mic-ring-outer"></div>
       <div class="mic-ring"></div>
       <button id="mic-btn" onclick="toggleListening()">
-        <!-- マイクアイコン -->
-        <svg id="mic-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg id="mic-icon" viewBox="0 0 24 24">
           <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.93V21h2v-3.07A7 7 0 0 0 19 11h-2z"/>
         </svg>
-        <!-- 停止アイコン（非表示） -->
-        <svg id="stop-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+        <svg id="stop-icon" viewBox="0 0 24 24" style="display:none;">
           <rect x="6" y="6" width="12" height="12" rx="2"/>
         </svg>
       </button>
@@ -512,12 +460,9 @@
     <div id="status-text">タップして曲名を話してください</div>
     <div id="recognized-text"></div>
     <div class="wave-bars" id="wave-bars" style="opacity:0;">
-      <div class="wave-bar"></div>
-      <div class="wave-bar"></div>
-      <div class="wave-bar"></div>
-      <div class="wave-bar"></div>
-      <div class="wave-bar"></div>
-      <div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div>
+      <div class="wave-bar"></div><div class="wave-bar"></div>
       <div class="wave-bar"></div>
     </div>
   </div>
@@ -535,7 +480,7 @@
   <div class="result-items" id="result-items"></div>
 </div>
 
-<!-- PDF表示画面 -->
+<!-- PDF表示 -->
 <div id="pdf-screen">
   <iframe id="pdf-frame" src="" allowfullscreen></iframe>
   <button id="pdf-close-btn" onclick="closePDF()">
@@ -552,22 +497,17 @@
 <!-- トースト -->
 <div id="toast"></div>
 
-<!-- Google API -->
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="https://apis.google.com/js/api.js"></script>
 
 <script>
 const CLIENT_ID = '270470441025-8so9rs1js3l44iiuo9v9dq2k24i0124v.apps.googleusercontent.com';
 const SCOPES = 'https://www.googleapis.com/auth/drive.readonly';
-const ROOT_FOLDER_ID = '1Yo2IyNy3-bbbphlISM3QJRIGdv_gv1iP';
 
 let tokenClient;
-let accessToken = null;
 let isListening = false;
 let recognition = null;
-let allFolderIds = null; // キャッシュ
 
-// ── 初期化 ──
 window.onload = () => {
   gapi.load('client', async () => {
     await gapi.client.init({});
@@ -579,13 +519,10 @@ window.onload = () => {
     scope: SCOPES,
     callback: async (resp) => {
       if (resp.error) { showToast('ログインに失敗しました'); return; }
-      accessToken = resp.access_token;
-      gapi.client.setToken({ access_token: accessToken });
+      gapi.client.setToken({ access_token: resp.access_token });
       document.getElementById('login-area').style.display = 'none';
       document.getElementById('main-screen').style.display = 'flex';
       showToast('ログイン完了！');
-      // フォルダIDをバックグラウンドでキャッシュ
-      setTimeout(() => prefetchFolderIds(), 1000);
     }
   });
 };
@@ -594,36 +531,10 @@ function handleLogin() {
   tokenClient.requestAccessToken({ prompt: 'consent' });
 }
 
-// ── フォルダID事前取得 ──
-async function prefetchFolderIds() {
-  try {
-    allFolderIds = await getAllFolderIds(ROOT_FOLDER_ID);
-  } catch(e) {}
-}
-
-async function getAllFolderIds(parentId) {
-  const ids = [parentId];
-  try {
-    const res = await gapi.client.drive.files.list({
-      q: `'${parentId}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
-      fields: 'files(id)',
-      pageSize: 100
-    });
-    for (const folder of (res.result.files || [])) {
-      const subIds = await getAllFolderIds(folder.id);
-      ids.push(...subIds);
-    }
-  } catch(e) {}
-  return ids;
-}
-
 // ── 音声認識 ──
 function toggleListening() {
-  if (isListening) {
-    stopListening();
-  } else {
-    startListening();
-  }
+  if (isListening) stopListening();
+  else startListening();
 }
 
 function startListening() {
@@ -643,8 +554,7 @@ function startListening() {
   };
 
   recognition.onresult = (e) => {
-    let interim = '';
-    let final = '';
+    let interim = '', final = '';
     for (let i = e.resultIndex; i < e.results.length; i++) {
       const t = e.results[i][0].transcript;
       if (e.results[i].isFinal) final += t;
@@ -657,21 +567,15 @@ function startListening() {
     const query = document.getElementById('recognized-text').textContent.trim();
     isListening = false;
     setListeningUI(false);
-    if (query) {
-      searchScores(query);
-    } else {
-      document.getElementById('status-text').textContent = '聞き取れませんでした。もう一度どうぞ';
-    }
+    if (query) searchScores(query);
+    else document.getElementById('status-text').textContent = '聞き取れませんでした。もう一度どうぞ';
   };
 
   recognition.onerror = (e) => {
     isListening = false;
     setListeningUI(false);
-    if (e.error === 'no-speech') {
-      document.getElementById('status-text').textContent = '音声が検出されませんでした';
-    } else {
-      showToast('音声認識エラー: ' + e.error);
-    }
+    if (e.error === 'no-speech') document.getElementById('status-text').textContent = '音声が検出されませんでした';
+    else showToast('音声認識エラー: ' + e.error);
   };
 
   recognition.start();
@@ -701,46 +605,32 @@ function setListeningUI(listening) {
   }
 }
 
-// ── 楽譜検索 ──
+// ── 楽譜検索（ログインユーザーのDrive全体） ──
 async function searchScores(query) {
   showLoading('楽譜を検索中...');
 
   try {
-    // フォルダIDキャッシュがなければ取得
-    if (!allFolderIds) {
-      document.getElementById('loading-text').textContent = 'フォルダを読み込み中...';
-      allFolderIds = await getAllFolderIds(ROOT_FOLDER_ID);
-    }
+    const res = await gapi.client.drive.files.list({
+      q: `mimeType='application/pdf' and name contains '${query.replace(/'/g, "\\'")}' and trashed=false`,
+      fields: 'files(id, name)',
+      pageSize: 50,
+      orderBy: 'name'
+    });
 
-    // 全フォルダでPDFを検索（Drive APIのクエリ長制限のため分割）
-    const CHUNK = 20;
-    let allFiles = [];
-    for (let i = 0; i < allFolderIds.length; i += CHUNK) {
-      const chunk = allFolderIds.slice(i, i + CHUNK);
-      const parentQuery = chunk.map(id => `'${id}' in parents`).join(' or ');
-      const res = await gapi.client.drive.files.list({
-        q: `(${parentQuery}) and mimeType='application/pdf' and name contains '${query.replace(/'/g, "\\'")}' and trashed=false`,
-        fields: 'files(id, name, parents)',
-        pageSize: 50
-      });
-      allFiles.push(...(res.result.files || []));
-    }
-
+    const files = res.result.files || [];
     hideLoading();
 
-    if (allFiles.length === 0) {
+    if (files.length === 0) {
       showToast(`「${query}」の楽譜が見つかりませんでした`);
       document.getElementById('status-text').textContent = 'タップして曲名を話してください';
       document.getElementById('recognized-text').textContent = '';
       return;
     }
 
-    if (allFiles.length === 1) {
-      // 1件のみ → 直接開く
-      openPDF(allFiles[0].id, allFiles[0].name);
+    if (files.length === 1) {
+      openPDF(files[0].id);
     } else {
-      // 複数件 → 一覧表示
-      showResultList(query, allFiles);
+      showResultList(query, files);
     }
 
   } catch (err) {
@@ -763,11 +653,9 @@ function showResultList(query, files) {
       <div class="result-item-icon">
         <svg viewBox="0 0 24 24"><path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z"/></svg>
       </div>
-      <div>
-        <div class="result-item-name">${file.name.replace(/\.pdf$/i, '')}</div>
-      </div>
+      <div class="result-item-name">${file.name.replace(/\.pdf$/i, '')}</div>
     `;
-    item.onclick = () => openPDF(file.id, file.name);
+    item.onclick = () => openPDF(file.id);
     container.appendChild(item);
   });
 
@@ -781,10 +669,9 @@ function backToMain() {
 }
 
 // ── PDF表示 ──
-function openPDF(fileId, fileName) {
+function openPDF(fileId) {
   document.getElementById('result-list').classList.remove('active');
-  const url = `https://drive.google.com/file/d/${fileId}/preview`;
-  document.getElementById('pdf-frame').src = url;
+  document.getElementById('pdf-frame').src = `https://drive.google.com/file/d/${fileId}/preview`;
   document.getElementById('pdf-screen').classList.add('active');
 }
 
@@ -795,7 +682,6 @@ function closePDF() {
   document.getElementById('status-text').textContent = 'タップして曲名を話してください';
 }
 
-// ── UI補助 ──
 function showLoading(msg) {
   document.getElementById('loading-text').textContent = msg || '読み込み中...';
   document.getElementById('loading').classList.add('active');
